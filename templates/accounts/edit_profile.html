@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>Edit Profile</h1>
+
+<form method="POST" action="/accounts/profile/edit_profile/" class="" >
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Save</button>
+</form>
+
+    <hr/>
+    <div class='row'>
+    <div class='col-sm-6 col-sm-offset-3 text-align-center'>
+    <p>Click <a href="/accounts/profile">Here</a> to go back to your profile</p>
+    </div>
+    </div>
+
+
+{% endblock %}

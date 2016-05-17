@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>{{ request.user.username }}'s Profile</h1>
+    <p>Username: {{request.user.username}}</p>
+    <p>First Name: {{ request.user.first_name }}</p>
+    <p>Last Name: {{ request.user.last_name }}</p>
+    <p>Email: {{ request.user.email }}</p>
+</div>
+</div>
+
+<hr/>
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3 text-align-center'>
+    <p>Click <a href="/accounts/profile/edit_profile">Here</a> to Edit Profile</p>
+    <!-- I don't think we'll need "change password" section"
+    as it's already within edit profile html -->
+    <p>Change <a href="{% url 'auth_password_change' %}">Password</a></p>
+</div>
+</div>
+{% endblock %}
+

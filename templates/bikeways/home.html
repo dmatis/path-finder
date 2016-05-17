@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% block content %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Path Finder</title>
+    <p style = "font-size:20px">Path Finder</p>
+    <!-- CSS for Map -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}" />
+    <!-- JS for Map -->
+    <script src="{% static 'js/load_map.js' %}"></script>
+    <!-- JS for Facebook -->
+    <script src="{% static 'js/facebook.js' %}"></script>
+
+</head>
+<body>
+
+
+{% if user.is_authenticated %}
+    {% block welcome-msg %}
+        {% trans 'Welcome,' %}
+        {% if user.is_superuser %}
+            <a href="/admin/">
+            <strong>{% firstof user.get_short_name user.get_username %}</strong>
+            </a>
+        {% else %}
+        <a href="/accounts/profile/">
+        <strong>{% firstof user.get_short_name %}</strong>
+        </a>
+        <p>Click on your name to view your profile.</p>
+        {% endif %}
+    {% endblock %}
+{% else %}
+    <p>Hello, visitor.</p>
+{% endif %}
+
+
+<div id="map"></div>
+<div class="geolocation">
+    <input id="currentloc" type="checkbox" onclick="trackCurrentLocation()">Track your current location!</input>
+
+</div>
+<div>
+    {% if user.is_superuser %}
+    <button type="button" onclick="fetchData()">Display all coordinates</button>
+    {% endif %}
+
+</div>
+<div>
+    <button type="button" onclick="findThreeRoutes()">Get three nearest routes</button>
+</div>
+
+<input id="pac-input" class="controls" type="text"
+       placeholder="Enter a location">
+
+<div class="fb-like" data-href="https://path-finder.herokuapp.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ubilabs.github.io/geocomplete/jquery.geocomplete.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery.geocomplete.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
+<!-- Initialize map-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSMmC31JL-cWJP1BBwmXbj_9yM-6sSfCQ&signed_in=false&libraries=places&callback=initMap"
+        async defer></script>
+
+</body>
+</html>
+{% endblock %}

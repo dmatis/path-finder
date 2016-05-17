@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+<script type="text/javascript">
+    setTimeout(function() {
+        window.location.href = "/";
+    }, 50);
+</script>
+
+
+{% block content %}
+<p class='text-align-center lead'>You have successfully logged out.</p><p class='text-align-center lead'><a href="{% url 'auth_login' %}">Login</a></p></p>
+{% endblock %}
+
+

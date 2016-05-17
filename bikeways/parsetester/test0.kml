@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+<name>bikeways</name>
+<visibility>1</visibility>
+<Style id="KMLStyler_7">
+<IconStyle>
+<colorMode>random</colorMode>
+</IconStyle>
+<LabelStyle>
+</LabelStyle>
+<LineStyle>
+<color>ccff3333</color>
+<colorMode>normal</colorMode>
+<width>6</width>
+</LineStyle>
+<PolyStyle>
+<colorMode>normal</colorMode>
+</PolyStyle>
+</Style>
+<Folder id="kml_ft_Bikeways">
+<name>Bikeways</name>
+<Placemark id="kml_1">
+<name>4th Ave</name>
+<description>Painted Lanes&lt;br&gt;
+ &lt;br&gt;
+ &lt;a href='http://vancouver.ca'&gt;City of Vancouver&lt;/a&gt;&lt;br&gt;
+ Phone: 3-1-1 or 604-873-7000</description>
+<styleUrl>#KMLStyler_7</styleUrl>
+<MultiGeometry>
+<LineString>
+<coordinates>-123.204042015075,49.26850170078,0 -123.205737081717,49.2689004289734,0 </coordinates>
+</LineString>
+<LineString>
+<coordinates>-123.215024245423,49.2691038566599,0 </coordinates>
+</LineString>
+</MultiGeometry>
+</Placemark>
+</Folder>
+</Document></kml>
